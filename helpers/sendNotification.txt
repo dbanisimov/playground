@@ -1,0 +1,9 @@
+curl -X POST -H "Authorization: Bearer ya29.c.ElpnBuX4gFUclp-azN5JB5_QylRR_J5E_eDjUbd1lotw1zArNFTCu6YVMIVRC598dQCosfEKQEKcCb8vS2UCbBSQurIp6_uXHFWamSLVylxQpWHg7707F_e9P18" -H "Content-Type: application/json" -d '{
+"message":{
+  "notification": {
+    "title": "FCM Message",
+    "body": "This is an FCM Message",
+  },
+  "token": "dBzagbhYqd8:APA91bHqejb4DDbH_BnecW2ENqau57l0-3Gtg8i9pUrfGkdHbFzWnkhA99zoemkdeimJ0sEaNWd4tcP5pgT0YGCp55XdwwSs3-XfkE6jE7ipG7PTHybGHKANeHOuU_CCfMQMrx9riCBW"
+  }
+}' https://fcm.googleapis.com/v1/projects/havefun-1d170/messages:send
