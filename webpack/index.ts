@@ -1,6 +1,8 @@
 import * as firebase from 'firebase/app';
-import 'firebase/database';
-import 'firebase/messaging';
+// import 'firebase/database';
+// import 'firebase/messaging';
+
+import 'firebase/auth';
 
 firebase.initializeApp({
     apiKey: "AIzaSyBehpN9M4BSsxbryYdizPCVnGz4nzxcv_c",
@@ -13,20 +15,22 @@ firebase.initializeApp({
 
 
 /** MESSAGING */
-const messaging = firebase.messaging();
-messaging.usePublicVapidKey('BKUDDOJYIsphesP-FC5o6o_fGNpzS2RMVDduHXAMlNQWXB4fWRi1HCrHqqa29MDgxzdOvc4wMCZOgpc53Zbp_QE');
+// const messaging = firebase.messaging();
+// messaging.usePublicVapidKey('BKUDDOJYIsphesP-FC5o6o_fGNpzS2RMVDduHXAMlNQWXB4fWRi1HCrHqqa29MDgxzdOvc4wMCZOgpc53Zbp_QE');
 
-messaging.requestPermission()
-    .then(function () {
-        console.log('Permission granted.');
-    })
-    .catch(function (e) {
-        console.log('Error occured.');
-    });
+// messaging.requestPermission()
+//     .then(function () {
+//         console.log('Permission granted.');
+//     })
+//     .catch(function (e) {
+//         console.log('Error occured.');
+//     });
 
-messaging.getToken().then(console.log);
+// messaging.getToken().then(console.log);
 
-messaging.onMessage(function (payload) {
-    console.log('Message received.');
-    console.log(payload);
-});
+// messaging.onMessage(function (payload) {
+//     console.log('Message received.');
+//     console.log(payload);
+// });
+
+/** AUTH */

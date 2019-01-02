@@ -1,0 +1,22 @@
+<html>
+    <body>
+        Service worker dirs
+    </body>
+    <script type="text/javascript">
+        navigator.serviceWorker.register('./dir-sw.js', {
+            scope: '.'
+        });
+
+        navigator.serviceWorker.addEventListener(
+        'message',
+        event => {
+            console.log('DIRS received msg from sw!', event)
+        },
+        false);
+
+        navigator.serviceWorker.getRegistrations().then(regs => {
+            console.log('regs', regs);
+            regs[0].active.postMessage('lala');
+        });
+    </script>
+</html>

@@ -1,0 +1,17 @@
+<html>
+
+<body>
+    Service worker
+</body>
+<script type="text/javascript">
+    navigator.serviceWorker.register('./sw.js');
+
+    navigator.serviceWorker.addEventListener(
+        'message',
+        event => {
+            console.log('received msg from sw!', event)
+        },
+        false);
+</script>
+
+</html>
