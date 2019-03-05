@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script>
+    <script type="text/javascript">
+
+        requirejs.config({
+            paths: {
+                "@firebase/app": "https://www.gstatic.com/firebasejs/5.8.5/firebase-app",
+                "@firebase/messaging": "https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging"
+            }
+        });
+
+        requirejs(['@firebase/app', '@firebase/messaging'], function (firebase) {
+            console.log('haha', firebase);
+            firebase.initializeApp({
+                apiKey: "AIzaSyBehpN9M4BSsxbryYdizPCVnGz4nzxcv_c",
+                authDomain: "havefun-1d170.firebaseapp.com",
+                databaseURL: "https://havefun-1d170.firebaseio.com",
+                projectId: "havefun-1d170",
+                storageBucket: "havefun-1d170.appspot.com",
+                messagingSenderId: "473315497267"
+            });
+
+            firebase.messaging().requestPermission();
+        });
+    </script>
+</head>
+
+<body>
+    Classic firebase example
+</body>
+
+</html>
