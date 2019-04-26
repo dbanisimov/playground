@@ -17,8 +17,17 @@ import 'firebase/auth';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor() {
-    const app = firebase.initializeApp({});
+    const app = firebase.initializeApp({
+      apiKey: "AIzaSyBehpN9M4BSsxbryYdizPCVnGz4nzxcv_c",
+      authDomain: "havefun-1d170.firebaseapp.com",
+      databaseURL: "https://havefun-1d170.firebaseio.com",
+      projectId: "havefun-1d170",
+      storageBucket: "havefun-1d170.appspot.com",
+      messagingSenderId: "473315497267"
+    });
+    const auth = app.auth();
+    console.log(auth);
   }
 }
