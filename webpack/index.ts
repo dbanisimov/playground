@@ -5,12 +5,14 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
 firebase.initializeApp({
-    apiKey: "AIzaSyBehpN9M4BSsxbryYdizPCVnGz4nzxcv_c",
+    apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
     authDomain: "havefun-1d170.firebaseapp.com",
     databaseURL: "https://havefun-1d170.firebaseio.com",
     projectId: "havefun-1d170",
     storageBucket: "havefun-1d170.appspot.com",
-    messagingSenderId: "473315497267"
+    messagingSenderId: "473315497267",
+    appId: "2:473315497267:web:a04e8a263a40ac31",
+    measurementId: "G-1XY5MX9MLD"
 });
 
 
