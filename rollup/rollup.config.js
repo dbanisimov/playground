@@ -23,13 +23,30 @@ const plugins = [
   })
 ];
 
+const esm2017Plugin = [
+  typescript({
+    typescript: require('typescript'),
+    tsconfigOverride: {
+      compilerOptions: {
+        target: 'es2017'
+      }
+    }
+  })
+];
+
 export default [
   {
     input: 'index.ts',
     output: [
-      { file: 'dist/bundle.cjs.js', format: 'cjs' },
       { file: 'dist/bundle.esm.js', format: 'es' }
     ],
     plugins
+  },
+  {
+    input: 'index.ts',
+    output: [
+      { file: 'dist/bundle.esm2017.js', format: 'es' }
+    ],
+    plugins: esm2017Plugin
   }
 ];
