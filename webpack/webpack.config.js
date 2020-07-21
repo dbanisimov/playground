@@ -1,3 +1,5 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 module.exports = {
     entry: "./index.ts",
     output: {
@@ -18,5 +20,8 @@ module.exports = {
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js"]
-    }
+    },
+    plugins: [
+        new BundleAnalyzerPlugin()
+    ]
 };

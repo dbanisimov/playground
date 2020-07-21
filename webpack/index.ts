@@ -2,7 +2,7 @@ import * as firebase from 'firebase/app';
 // import 'firebase/database';
 // import 'firebase/messaging';
 
-import 'firebase/auth';
+import 'firebase/firestore';
 
 firebase.initializeApp({
     apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
