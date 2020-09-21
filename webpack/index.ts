@@ -1,11 +1,8 @@
-import * as firebase from 'firebase/app';
-// import 'firebase/database';
-// import 'firebase/messaging';
+    
+    import { initializeApp } from 'firebase/app';
+    import { getFirestore, collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
 
-import 'firebase/firestore';
-
-firebase.initializeApp({
-    apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
+    const app = initializeApp({     apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
     authDomain: "havefun-1d170.firebaseapp.com",
     databaseURL: "https://havefun-1d170.firebaseio.com",
     projectId: "havefun-1d170",
@@ -13,7 +10,12 @@ firebase.initializeApp({
     messagingSenderId: "473315497267",
     appId: "2:473315497267:web:a04e8a263a40ac31",
     measurementId: "G-1XY5MX9MLD"
-});
+    });
+
+
+    console.log(app, getFirestore, collection, query, where, orderBy, onSnapshot, );
+ 
+
 
 
 /** MESSAGING */
