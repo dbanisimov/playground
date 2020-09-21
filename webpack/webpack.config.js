@@ -19,6 +19,7 @@ module.exports = {
         ]
     },
     resolve: {
+        mainFields: ['esm2017', 'module', 'main'],
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js"]
     },
