@@ -1,6 +1,6 @@
     
     import { initializeApp } from 'firebase/app';
-    import { getFirestore, collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
+    import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
     const app = initializeApp({     apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
     authDomain: "havefun-1d170.firebaseapp.com",
@@ -13,9 +13,8 @@
     });
 
 
-    console.log(app, getFirestore, collection, query, where, orderBy, onSnapshot, );
+    console.log(app, getFirestore, doc, getDoc);
  
-
 
 
 /** MESSAGING */
