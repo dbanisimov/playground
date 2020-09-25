@@ -1,10 +1,10 @@
-import * as firebase from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 // import 'firebase/database';
 // import 'firebase/messaging';
+import '@firebase/installations';
+import { getPerformance } from '@firebase/performance';
 
-import 'firebase/firestore';
-
-firebase.initializeApp({
+const app = initializeApp({
     apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
     authDomain: "havefun-1d170.firebaseapp.com",
     databaseURL: "https://havefun-1d170.firebaseio.com",
@@ -14,6 +14,10 @@ firebase.initializeApp({
     appId: "2:473315497267:web:a04e8a263a40ac31",
     measurementId: "G-1XY5MX9MLD"
 });
+
+const perf = getPerformance(app, { instrumentationEnabled: true });
+
+console.log(perf);
 
 
 /** MESSAGING */
