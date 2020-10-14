@@ -5,6 +5,7 @@
         "types": [
             "node"
         ],
+        "moduleResolution": "node",
         "esModuleInterop": true,
         "importHelpers": true,
     }
