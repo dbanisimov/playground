@@ -8,12 +8,15 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "firebase": "^5.5.8",
+    "firebase": "7.23.0",
     "typescript": "^3.1.6"
   },
   "devDependencies": {
     "ts-loader": "^4.5.0",
-    "rollup": "^1.0.2",
-    "rollup-plugin-typescript2": "0.12.0"
+    "rollup": "^2.30.0",
+    "rollup-plugin-typescript2": "0.27.3",
+    "@rollup/plugin-commonjs": "15.1.0",
+    "@rollup/plugin-node-resolve": "9.0.0",
+    "rollup-plugin-terser": "7.0.2"
   }
 }

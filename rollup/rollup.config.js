@@ -16,12 +16,27 @@
 
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
+import resolveModule from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import { terser } from 'rollup-plugin-terser';
 
 const plugins = [
   typescript({
-    typescript: require('typescript')
-  })
+    typescript: require('typescript'),
+    objectHashIgnoreUnknownHack: true
+  }),
+  resolveModule({
+    mainFields: ['esm2017', 'module']
+  }),
+  commonjs(),
+  // terser({
+  //   format: {
+  //     comments: false
+  //   }
+  // })
 ];
+
+const externals = ['@firebase/app', '@firebase/util', '@firebase/logger', '@firebase/component']
 
 export default [
   {
@@ -30,6 +45,7 @@ export default [
       { file: 'dist/bundle.cjs.js', format: 'cjs' },
       { file: 'dist/bundle.esm.js', format: 'es' }
     ],
-    plugins
-  }
+    plugins,
+    // external: id => externals.some(dep => id === dep)
+  },
 ];
