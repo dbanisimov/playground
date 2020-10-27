@@ -24,7 +24,7 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js"]
     },
     plugins: [
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
     ],
     optimization: {
         minimizer: [

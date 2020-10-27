@@ -1,10 +1,36 @@
 <html>
-    <header>
+<header>
 
-    </header>
-    <body>
-        Firebase Webpack test
-    </body>
-    <script type="text/javascript" src="./dist/bundle.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/@firebase/database@0.6.13?module"></script>
+</header>
+
+<body>
+    Firebase Webpack test
+</body>
+<script type="text/javascript" src="./dist/bundle.js"></script>
+<script type="text/javascript" src="https://unpkg.com/@firebase/database@0.6.13?module"></script>
+<!-- <script type="text/javascript" src="scripts/firebase-app.js"></script>
+<script type="text/javascript" src="scripts/firebase-auth.js"></script>
+<script>
+    const app = firebase.app.initializeApp({
+        apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
+        authDomain: "havefun-1d170.firebaseapp.com",
+        databaseURL: "https://havefun-1d170.firebaseio.com",
+        projectId: "havefun-1d170",
+        storageBucket: "havefun-1d170.appspot.com",
+        messagingSenderId: "473315497267",
+        appId: "2:473315497267:web:a04e8a263a40ac31",
+        measurementId: "G-1XY5MX9MLD"
+    });
+    console.log(app);
+
+    console.log(firebase.auth);
+
+    const auth = firebase.auth.initializeAuth(app);
+
+    firebase.auth.signInWithEmailAndPassword(auth, 'testtest123321123@test.com', 'testtest').then(cred => {
+        console.log(cred)
+    })
+    console.log(auth)
+</script> -->
+
 </html>

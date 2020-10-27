@@ -1,8 +1,11 @@
 import { initializeApp } from 'firebase/app';
 // import 'firebase/database';
 // import 'firebase/messaging';
-import '@firebase/installations';
-import { getPerformance } from '@firebase/performance';
+// import '@firebase/installations';
+// import { getPerformance } from '@firebase/performance';
+
+import { indexedDBLocalPersistence, initializeAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const app = initializeApp({
     apiKey: "AIzaSyBpikCPYbwAohiGbh57-MgN4AwvowDkC9o",
@@ -15,9 +18,26 @@ const app = initializeApp({
     measurementId: "G-1XY5MX9MLD"
 });
 
-const perf = getPerformance(app, { instrumentationEnabled: true });
+// const perf = getPerformance(app, { instrumentationEnabled: true });
 
-console.log(perf);
+// console.log(perf);
+
+const auth = initializeAuth(app, {
+    persistence: [indexedDBLocalPersistence]
+});
+
+signInWithEmailAndPassword(auth, 'test@test.test', 'testtest').then(cred => {
+    console.log(cred);
+
+})
+
+const firestore = getFirestore(app);
+const d = doc(firestore, 'coll/Los Angeles');
+getDoc(d).then(val => {
+    console.log(val.data())
+})
+
+
 
 
 /** MESSAGING */
