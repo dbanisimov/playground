@@ -19,24 +19,28 @@ import pkg from './package.json';
 import resolveModule from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import jsonplugin from '@rollup/plugin-json';
 
 const plugins = [
   typescript({
-    typescript: require('typescript'),
-    objectHashIgnoreUnknownHack: true
+    typescript: require('typescript')
   }),
   resolveModule({
     mainFields: ['esm2017', 'module']
   }),
   commonjs(),
-  // terser({
-  //   format: {
-  //     comments: false
-  //   }
-  // })
+  terser({
+    format: {
+      comments: false
+    },
+    mangle: { toplevel: true },
+    compress: false
+  }),
+  jsonplugin()
 ];
 
-const externals = ['@firebase/app', '@firebase/util', '@firebase/logger', '@firebase/component']
+const externals = []
+// const externals = ['@firebase/app', '@firebase/util', '@firebase/logger', '@firebase/component']
 
 export default [
   {
