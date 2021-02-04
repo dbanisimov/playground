@@ -15,7 +15,7 @@
 
 |  Function | Description |
 |  --- | --- |
-|  [byeMars()](#byemars-function) |  |
+|  [byeMars()](#fy) |  |
 |  [helloWorld(from)](#variables) |  |
 
 ## Interfaces
@@ -42,7 +42,7 @@
 ```typescript
 export declare function byeMars(): string;
 ```
-<b>Returns:</b>
+<a name="fy"></a><b>Returns:</b>
 
 string
 

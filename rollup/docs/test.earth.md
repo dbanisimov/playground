@@ -13,3 +13,5 @@ export declare class Earth implements Planet
 
 <b>to byemars</b> [byeMars](test.md#byemars-function)
 
+<b>to return</b> [toReturn](test.md#fy)
+
