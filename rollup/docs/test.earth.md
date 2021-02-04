@@ -11,3 +11,5 @@ export declare class Earth implements Planet
 ```
 <b>Implements:</b> [Planet](test.md#variables)
 
+<b>to byemars</b> [byeMars](test.md#byemars-function)
+

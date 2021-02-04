@@ -15,7 +15,7 @@
 
 |  Function | Description |
 |  --- | --- |
-|  [byeMars()](#byemars()-function) |  |
+|  [byeMars()](#byemars-function) |  |
 |  [helloWorld(from)](#variables) |  |
 
 ## Interfaces
