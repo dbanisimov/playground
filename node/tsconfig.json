@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es2019",
+        "module": "commonjs",
+        "outDir": "dist",
+        "lib": ["es2020", "dom"],
+        "strict": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "downlevelIteration": true
+      },
+      "exclude": ["node_modules", "dist", "scripts", "examples"]
+}
