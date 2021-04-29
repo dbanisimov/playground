@@ -1,10 +1,6 @@
-import { getDatabase } from "firebase/database";
-import { getStorage, uploadString, getDownloadURL, ref } from "firebase/storage";
+import { getFirestore, getDoc, doc, setLogLevel } from "firebase/firestore";
 import { initializeApp, FirebaseApp, FirebaseOptions } from 'firebase/app';
 import { getAuth, signInAnonymously } from 'firebase/auth';
-import { getAnalytics, logEvent, settings, SettingsOptions } from 'firebase/analytics';
-import { getPerformance, FirebasePerformance, PerformanceTrace, trace } from 'firebase/performance';
-import { getRemoteConfig, RemoteConfig, ValueType, RemoteConfigLogLevel, setLogLevel, fetchAndActivate, getAll} from 'firebase/remote-config';
 
 const firebaseConfig: FirebaseOptions = {
     apiKey: "AIzaSyCSwhdsZZ34EQXL-QOOidN9IHUGxmmjPdU",
@@ -18,36 +14,28 @@ const firebaseConfig: FirebaseOptions = {
 };
 
 const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
 
-const database = getDatabase(firebaseApp);
-console.log('get database ref');
-const databaseRef = database.ref("data_txt");
-const storage = getStorage(firebaseApp);
-const storageRef = ref(storage, "data_txt");
 
-const analytics = getAnalytics(firebaseApp);
-logEvent(analytics, 'test_exp');
-// settings(123 as SettingsOptions);
-
-const perf: FirebasePerformance = getPerformance(firebaseApp);
-const trc: PerformanceTrace = trace(perf, 'my')
-
-const rc: RemoteConfig = getRemoteConfig(firebaseApp);
-// setLogLevel(rc, '123' as RemoteConfigLogLevel);
-
+const firestore = getFirestore(firebaseApp);
+setLogLevel("debug");
+// getAuth();
+getDoc(doc(firestore, 'coll/New York')).then(v => {
+    console.log('sync firestore get', v.data());
+});
 async function run() {
-    await signInAnonymously(auth);
-    await uploadString(storageRef, "Hello World");
-    const url = await getDownloadURL(storageRef);
-    console.log('download url is ', url);
-    await databaseRef.set(url);
+    // const auth = getAuth();
+    // await signInAnonymously(auth);
 
-    await fetchAndActivate(rc);
-    
-    for(const key of Object.keys(getAll(rc))) {
-        console.log('rc', key);
-    } 
+    // getDoc(doc(firestore, 'coll/New York')).then(v => {
+    //     console.log('sync firestore get', v.data());
+    // });
 }
+
+setTimeout(() => {
+    getAuth();
+    getDoc(doc(firestore, 'coll/New York')).then(v => {
+        console.log('AAAAAAsync firestore get', v.data());
+    });
+}, 500);
 
 run();
