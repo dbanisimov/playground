@@ -1,10 +1,11 @@
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref as rtdbRef, get } from "firebase/database";
 import { getStorage, uploadString, getDownloadURL, ref } from "firebase/storage";
 import { initializeApp, FirebaseApp, FirebaseOptions } from 'firebase/app';
 import { getAuth, signInAnonymously } from 'firebase/auth';
 import { getAnalytics, logEvent, settings, SettingsOptions } from 'firebase/analytics';
 import { getPerformance, FirebasePerformance, PerformanceTrace, trace } from 'firebase/performance';
-import { getRemoteConfig, RemoteConfig, ValueType, RemoteConfigLogLevel, setLogLevel, fetchAndActivate, getAll} from 'firebase/remote-config';
+import { getRemoteConfig, RemoteConfig, setLogLevel, fetchAndActivate, getAll } from 'firebase/remote-config';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const firebaseConfig: FirebaseOptions = {
     apiKey: "AIzaSyCSwhdsZZ34EQXL-QOOidN9IHUGxmmjPdU",
@@ -18,36 +19,70 @@ const firebaseConfig: FirebaseOptions = {
 };
 
 const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
-
-const database = getDatabase(firebaseApp);
-console.log('get database ref');
-const databaseRef = database.ref("data_txt");
-const storage = getStorage(firebaseApp);
-const storageRef = ref(storage, "data_txt");
-
-const analytics = getAnalytics(firebaseApp);
-logEvent(analytics, 'test_exp');
-// settings(123 as SettingsOptions);
-
-const perf: FirebasePerformance = getPerformance(firebaseApp);
-const trc: PerformanceTrace = trace(perf, 'my')
-
-const rc: RemoteConfig = getRemoteConfig(firebaseApp);
-// setLogLevel(rc, '123' as RemoteConfigLogLevel);
 
 async function run() {
-    await signInAnonymously(auth);
+    /**
+     * Auth
+     */
+    const auth = getAuth(firebaseApp);
+    console.log('signed in', await signInAnonymously(auth));
+
+    /**
+     * Firestore
+     */
+    const firestore = getFirestore();
+    getDoc(doc(firestore, 'coll/New York')).then(d => {
+        console.log('got data from firestore, ', d.data())
+    });
+
+    /**
+     * Database
+     */
+    const database = getDatabase(firebaseApp);
+    console.log('get database ref');
+    get(rtdbRef(database, "Foo")).then(d => {
+        console.log('got data from database, ', d.val())
+    });
+
+
+    /**
+     * Storage
+     */
+    const storage = getStorage(firebaseApp);
+    const storageRef = ref(storage, "data_txt");
     await uploadString(storageRef, "Hello World");
     const url = await getDownloadURL(storageRef);
     console.log('download url is ', url);
-    await databaseRef.set(url);
 
+    /**
+     * Analytics
+     */
+    const analytics = getAnalytics(firebaseApp);
+    logEvent(analytics, 'test_exp');
+
+
+    /**
+     * RC
+     */
+    const rc: RemoteConfig = getRemoteConfig(firebaseApp);
     await fetchAndActivate(rc);
-    
-    for(const key of Object.keys(getAll(rc))) {
+
+    for (const key of Object.keys(getAll(rc))) {
         console.log('rc', key);
-    } 
+    }
+
+    /**
+     * Perf
+     */
+    const perf: FirebasePerformance = getPerformance(firebaseApp);
+
+    /**
+     * FCM
+     */
+
+    /**
+     * Functions
+     */
 }
 
 run();
