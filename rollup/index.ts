@@ -48,11 +48,11 @@ async function run() {
     /**
      * Storage
      */
-    const storage = getStorage(firebaseApp);
-    const storageRef = ref(storage, "data_txt");
-    await uploadString(storageRef, "Hello World");
-    const url = await getDownloadURL(storageRef);
-    console.log('download url is ', url);
+    // const storage = getStorage(firebaseApp);
+    // const storageRef = ref(storage, "data_txt");
+    // await uploadString(storageRef, "Hello World");
+    // const url = await getDownloadURL(storageRef);
+    // console.log('download url is ', url);
 
     /**
      * Analytics
