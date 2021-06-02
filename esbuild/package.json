@@ -3,17 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "sideEffects": true,
   "scripts": {
-    "build": "webpack --mode=development"
+    "build": "esbuild index.ts --bundle --splitting --outdir=dist --format=esm"
   },
   "dependencies": {
     "firebase": "beta",
     "typescript": "^3.1.6"
   },
   "devDependencies": {
-    "ts-loader": "^4.5.0",
-    "webpack": "^4.26.0",
-    "webpack-bundle-analyzer": "3.8.0",
-    "webpack-cli": "^3.1.2"
+    "esbuild":"0.12.4"
   }
 }

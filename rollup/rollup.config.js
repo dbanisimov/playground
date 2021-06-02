@@ -33,7 +33,7 @@ const plugins = [
     format: {
       comments: false
     },
-    mangle: { toplevel: true },
+    mangle: false,
     compress: false
   }),
   jsonplugin()
@@ -45,10 +45,7 @@ const externals = []
 export default [
   {
     input: 'index.ts',
-    output: [
-      { file: 'dist/bundle.cjs.js', format: 'cjs' },
-      { file: 'dist/bundle.esm.js', format: 'es' }
-    ],
+    output: { dir: 'dist', format: 'es' },
     plugins,
     // external: id => externals.some(dep => id === dep)
   },

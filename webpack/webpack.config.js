@@ -25,6 +25,15 @@ module.exports = {
     },
     plugins: [
         // new BundleAnalyzerPlugin(),
+        // new TerserPlugin({
+        //     terserOptions: {
+        //         output: {
+        //             comments: false,
+        //         },
+        //         compress: false,
+        //         mangle: false
+        //     }
+        // })
     ],
     optimization: {
         minimizer: [
@@ -32,7 +41,8 @@ module.exports = {
                 terserOptions: {
                     output: {
                         comments: false
-                    }
+                    },
+                    mangle: false
                 }
             })
         ]
