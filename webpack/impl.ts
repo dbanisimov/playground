@@ -1,7 +1,2 @@
-export function hello(){
-    console.log('hello');
-}
-
-export function hi(){
-    console.log('hi');
-}
+export { hi } from './hi';
+export { hello } from './hello';
