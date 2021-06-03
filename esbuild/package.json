@@ -5,7 +5,8 @@
   "license": "MIT",
   "sideEffects": true,
   "scripts": {
-    "build": "esbuild index.ts --bundle --splitting --outdir=dist --format=esm"
+    "build": "esbuild index.ts --bundle --splitting --outdir=dist --format=esm",
+    "build:example": "esbuild example/index.js example/settings.js --bundle --splitting --outdir=dist2 --format=esm"
   },
   "dependencies": {
     "firebase": "beta",

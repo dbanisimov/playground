@@ -6,7 +6,7 @@ module.exports = {
     output: {
         filename: "bundle.js"
     },
-    devtool: 'source-maps',
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -45,6 +45,9 @@ module.exports = {
                     mangle: false
                 }
             })
-        ]
+        ],
+        splitChunks: {
+            chunks: 'all'
+        }
     }
 };

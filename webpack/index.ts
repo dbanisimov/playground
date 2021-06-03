@@ -23,10 +23,10 @@
 
 console.log('main ts');
 
-import('./u1').then(({myHello}) => {
+import('./a').then(({myHello}) => {
     myHello();
 })
 
-import('./u2').then(({myHi}) => {
+import('./b').then(({myHi}) => {
     myHi();
 })
